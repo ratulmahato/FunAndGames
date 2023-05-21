@@ -9,6 +9,7 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;    
+      overflow: hidden;
     }
     #question {
       font-size: 48px;
@@ -23,12 +24,15 @@
     .button {
       display: inline-block;
       padding: 20px 40px;
+      margin-top: 200px;
+      margin-left: 400px;
       font-size: 18px;
       border-radius: 5px;
       cursor: pointer;
       background-color: #ff4081;
       color: #fff;
       border: blanchedalmond;
+      transition: transform 0.3s ease-in-out;
     }
     #noButton {
       position: absolute;
@@ -44,10 +48,13 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       z-index: 9999;
+      font-size: 24px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     #closeButton {
       display: block;
       margin-top: 10px;
+      margin-left: 120px;
     }
   </style>
 </head>
@@ -81,9 +88,10 @@
       popup.style.display = "block";
     });
 
-    // Close the popup on 'Close' button click
+    // Close the popup and refresh the page on 'Close' button click
     closeButton.addEventListener("click", function() {
       popup.style.display = "none";
+      location.reload();
     });
   </script>
 </body>
