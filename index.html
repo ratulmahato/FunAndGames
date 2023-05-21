@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Button Example</title>
+  <style>
+    body {
+      background-image: url('northern_lights.jpg');
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;    
+    }
+    #question {
+      font-size: 48px;
+      text-align: center;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      margin-top: 50px;
+      color: whitesmoke; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 20px 40px;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #ff4081;
+      color: #fff;
+      border: blanchedalmond;
+    }
+    #noButton {
+      position: absolute;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 9999;
+    }
+    #closeButton {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="question">Lets plan something! What you say?</h2>
+  <button id="yesButton" class="button">Yes</button>
+  <button id="noButton" class="button">No</button>
+
+  <div id="popup">
+    <p>HeHe! I knew it you would agree!</p>
+    <button id="closeButton" class="button">Close</button>
+  </div>
+
+  <script>
+    // Move the 'No' button to a random position on hover
+    var noButton = document.getElementById("noButton");
+    noButton.addEventListener("mouseover", function() {
+      var screenWidth = window.innerWidth;
+      var screenHeight = window.innerHeight;
+      var newX = Math.floor(Math.random() * (screenWidth - 100));
+      var newY = Math.floor(Math.random() * (screenHeight - 40));
+      noButton.style.left = newX + "px";
+      noButton.style.top = newY + "px";
+    });
+
+    // Show the popup on 'Yes' button click
+    var yesButton = document.getElementById("yesButton");
+    var popup = document.getElementById("popup");
+    var closeButton = document.getElementById("closeButton");
+    yesButton.addEventListener("click", function() {
+      popup.style.display = "block";
+    });
+
+    // Close the popup on 'Close' button click
+    closeButton.addEventListener("click", function() {
+      popup.style.display = "none";
+    });
+  </script>
+</body>
+</html>
